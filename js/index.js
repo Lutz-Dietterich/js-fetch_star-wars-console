@@ -7,7 +7,7 @@ async function fetchData() {
     const response = await fetch(url);
     console.log(response);
     const data = await response.json();
-    console.log(data);
+    console.log(data.results[2].eye_color);
 
     if (response.ok) {
       return data;
@@ -18,5 +18,6 @@ async function fetchData() {
     console.error("An Error occurented");
   }
 }
-
-fetchData();
+fetchData().then((starwarsData) => {
+  console.log("result", starwarsData);
+});
